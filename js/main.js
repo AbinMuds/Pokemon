@@ -33,12 +33,28 @@ fetch("https://pokeapi.co/api/v2/pokemon?limit=200")
                 .then((response) => response.json())
                 .then((data) => {
                     for (j=0;j<data.types.length;j++){
-                        let pType = document.createElement('h3')
+                        let pType = document.createElement('li')
                         pType.textContent = data.types[j].type.name
                         containerDiv.append(pType)
                     }
                 })     
             }
+            
+            // function for abilities
+            function getAbilitiesOf(pokeID, containerDiv){
+                fetch(pokemonList[i].url)
+                .then((response) => response.json())
+                .then((data) => {
+                    for (j=0;j<data.abilities.length;j++){
+                        let pAbilities = document.createElement('li')
+                        pAbilities.textContent = data.abilities[j].ability.name
+                        pAbilities.setAttribute("style","color:red;");
+                        containerDiv.append(pAbilities)
+                    }
+                })     
+            }
+            
+            
             //   calling for image of that id
             createPokeImage(i+1,div)
             // A button for the Pokedex page to take to diffrent page to get its details
@@ -58,7 +74,15 @@ fetch("https://pokeapi.co/api/v2/pokemon?limit=200")
                 div.appendChild(btn)
                 btn.setAttribute("id","bttn"+i) 
                 document.getElementById("bttn"+i).addEventListener('click',function() {
-                    getTypeof(i+i,div);
+                    getTypeof(i+1,div)
+                })
+                // for abilities
+                btn1 = document.createElement("button")
+                btn1.textContent = "Abilities"
+                div.appendChild(btn1)
+                btn1.setAttribute("id","bttn1"+i) 
+                document.getElementById("bttn1"+i).addEventListener('click',function() {
+                    getAbilitiesOf(i+1,div)
                 })
                 // name of the pokemon
                 text = document.createElement('h1')
@@ -66,8 +90,6 @@ fetch("https://pokeapi.co/api/v2/pokemon?limit=200")
                 text.textContent = pokemonList[i].name
                 createPokeImage(i+1,div)
                 // location.href="../html/Pokedex.html"
-                
-                console.log("hello")
             })
         
         }  
