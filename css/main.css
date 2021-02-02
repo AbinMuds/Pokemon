@@ -8,10 +8,40 @@ img{
 } */
 #container{
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    margin: 20px;
+    grid-template-columns:repeat(auto-fill,200px);
+    gap: 1rem;
+    /* flex-wrap: wrap; */
+    justify-content: center;
+
 }
 #container div{
+        
+        border:ridge;
+        margin:auto;
+        padding:20px;
+        background-color: rgb(155, 194, 196);
+}
+/* @media (min-width:401px;){
+    #container{
         display:flex;
-        flex-direction: column;
+        flex-wrap: wrap;
+    }
+} */
+nav{
+    border:ridge;
+    background-color: burlywood;
+    display: flex;
+    gap: 1rem;
+    margin: 20px;
+    padding: 10px;
+
+}
+body{
+    background-image: url("../images/ash.png");
+
+}
+header{
+    font-size: 200%;
+    text-align: center;
+    background: red;
 }
