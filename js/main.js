@@ -19,7 +19,11 @@ fetch("https://pokeapi.co/api/v2/pokemon?limit=200")
             div = document.createElement("div")
             mainDiv.appendChild(div)
             div.setAttribute("id",i)
-            div.innerHTML = pokemonList[i].name
+            // capitalize
+            function capitalizeFirstLetter(string) {
+                return string.charAt(0).toUpperCase() + string.slice(1);
+              }
+            div.innerHTML = capitalizeFirstLetter(pokemonList[i].name)
             // creating a function to get pokemons by their id
             function createPokeImage(pokeID, containerDiv){
                 let pokeImage = document.createElement('img')
