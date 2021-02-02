@@ -26,9 +26,10 @@ fetch("https://pokeapi.co/api/v2/pokemon?limit=200")
                 pokeImage.srcset = `https://pokeres.bastionbot.org/images/pokemon/${pokeID}.png`
                 containerDiv.append(pokeImage);
               }
+              
             //   function to get type of that pokemon
               function getTypeof(pokeID, containerDiv){
-                fetch("https://pokeapi.co/api/v2/pokemon/2")
+                fetch(pokemonList[i].url)
                 .then((response) => response.json())
                 .then((data) => {
                     for (j=0;j<data.types.length;j++){
@@ -40,8 +41,6 @@ fetch("https://pokeapi.co/api/v2/pokemon?limit=200")
             }
             //   calling for image of that id
             createPokeImage(i+1,div)
-            // getTypeof(i+1,div)
-            // console.log(pokemonList[i])
             // A button for the Pokedex page to take to diffrent page to get its details
             btn = document.createElement("button")
             btn.textContent = "Pokedex"
@@ -53,20 +52,25 @@ fetch("https://pokeapi.co/api/v2/pokemon?limit=200")
                 // creating a another div after cleared
                 div = document.createElement("div")
                 document.body.appendChild(div)
-
+                // creating a button for types
+                btn = document.createElement("button")
+                btn.textContent = "Types"
+                div.appendChild(btn)
+                btn.setAttribute("id","bttn"+i) 
+                document.getElementById("bttn"+i).addEventListener('click',function() {
+                    getTypeof(i+i,div);
+                })
+                // name of the pokemon
                 text = document.createElement('h1')
                 document.body.appendChild(text)
                 text.textContent = pokemonList[i].name
                 createPokeImage(i+1,div)
                 // location.href="../html/Pokedex.html"
-                getTypeof(i+1,div)
+                
                 console.log("hello")
             })
         
-        }
-        
-        
-        // getTypeof(0,div)       
+        }  
     })
 
 
