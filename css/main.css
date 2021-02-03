@@ -8,20 +8,26 @@ img{
 } */
 #container{
     display: grid;
-    grid-template-columns:repeat(auto-fill,200px);
+    grid-template-columns:repeat(auto-fill,300px);
     gap: 0.5rem;
     /* flex-wrap: wrap; */
     justify-content: center;
 
 }
 #container div{
-        
+        color: rgb(1, 7, 26);
         border:ridge;
         margin:auto;
         padding:30px;
         background-color: rgb(155, 194, 196);
         display: grid;
+        font-size: 30px;
+        gap: 0.5rem;
 
+}
+#container img{
+    width: 200px;
+    height:200px;
 }
 /* @media (min-width:401px;){
     #container{
@@ -30,13 +36,8 @@ img{
     }
 } */
 nav{
-    border:ridge;
-    background-color: burlywood;
-    display: flex;
-    gap: 1rem;
     margin: 20px;
-    padding: 10px;
-
+    padding: 20px;
 }
 body{
     background-image: url("../images/ash.png");

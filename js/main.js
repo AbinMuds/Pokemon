@@ -72,10 +72,11 @@ fetch("https://pokeapi.co/api/v2/pokemon?limit=200")
                 // creating a another div after cleared
                 div = document.createElement("div")
                 document.body.appendChild(div)
+                div.setAttribute("style","display:grid;widht:300px;height:300px;justify-content:center;font-size:30px;background-color:light-blue;")
                 // creating a button for types
                 btn = document.createElement("button")
-                btn.textContent = "Types"
                 div.appendChild(btn)
+                btn.textContent = "Types"
                 btn.setAttribute("id","bttn"+i) 
                 document.getElementById("bttn"+i).addEventListener('click',function() {
                     getTypeof(i+1,div)
