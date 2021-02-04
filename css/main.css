@@ -2,18 +2,14 @@ img{
     height: 50px;
     width: 50px;
 }
-/* div{
-    border:1px outset green;
-    text-align: center;
-} */
+
 #container{
     display: grid;
     grid-template-columns:repeat(auto-fill,300px);
     gap: 0.5rem;
-    /* flex-wrap: wrap; */
     justify-content: center;
-
 }
+
 #container div{
         color: rgb(1, 7, 26);
         border:ridge;
@@ -23,26 +19,22 @@ img{
         display: grid;
         font-size: 30px;
         gap: 0.5rem;
-
 }
+
 #container img{
     width: 200px;
     height:200px;
 }
-/* @media (min-width:401px;){
-    #container{
-        display:flex;
-        flex-wrap: wrap;
-    }
-} */
+
 nav{
     margin: 20px;
     padding: 20px;
 }
+
 body{
     background-image: url("../images/ash.png");
-
 }
+
 header{
     font-size: 200%;
     text-align: center;

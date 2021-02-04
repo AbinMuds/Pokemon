@@ -30,7 +30,6 @@ fetch("https://pokeapi.co/api/v2/pokemon?limit=200")
                 pokeImage.srcset = `https://pokeres.bastionbot.org/images/pokemon/${pokeID}.png`
                 containerDiv.append(pokeImage);
                 pokeImage.setAttribute("style","width: 200px;height:200px;")
-                
               }
               
             //   function to get type of that pokemon
@@ -90,7 +89,7 @@ fetch("https://pokeapi.co/api/v2/pokemon?limit=200")
                 document.getElementById("bttn"+i).addEventListener('click',function() {
                     getTypeof(i+1,sect1)
                 })
-                // for abilities
+                // creating button for abilities
                 btn1 = document.createElement("button")
                 btn1.textContent = "Abilities"
                 div.appendChild(btn1)
@@ -99,10 +98,13 @@ fetch("https://pokeapi.co/api/v2/pokemon?limit=200")
                 document.getElementById("bttn1"+i).addEventListener('click',function() {
                     getAbilitiesOf(i+1,sect2)
                 })
+                // this is only for styling rather than functionality
+                // a table for the buttons
                 tab = document.createElement('table')
                 div.appendChild(tab)
                 tab.appendChild(btn)
                 tab.appendChild(btn1)
+                // a table for the div elements 
                 tab2 = document.createElement('table')
                 div.appendChild(tab2)
                 sect1 = document.createElement("div")
@@ -112,8 +114,6 @@ fetch("https://pokeapi.co/api/v2/pokemon?limit=200")
                 sect1.setAttribute("style","width:50%")
                 sect2.setAttribute("style","width:50%")
                 tab2.setAttribute("style","display:flex;")
-
             })
-        
         }  
     })
