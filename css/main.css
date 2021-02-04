@@ -48,3 +48,13 @@ header{
     text-align: center;
     background: red;
 }
+
+@media only screen and (max-width: 600px) {
+    #container div{
+        background-color: rgb(215, 237, 18);
+    }
+    header{
+        font-size: medium;
+        color:rgba(227, 230, 228, 0.85)
+    }
+}
