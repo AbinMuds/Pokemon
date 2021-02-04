@@ -29,6 +29,8 @@ fetch("https://pokeapi.co/api/v2/pokemon?limit=200")
                 let pokeImage = document.createElement('img')
                 pokeImage.srcset = `https://pokeres.bastionbot.org/images/pokemon/${pokeID}.png`
                 containerDiv.append(pokeImage);
+                pokeImage.setAttribute("style","width: 200px;height:200px;")
+                
               }
               
             //   function to get type of that pokemon
@@ -37,7 +39,7 @@ fetch("https://pokeapi.co/api/v2/pokemon?limit=200")
                 .then((response) => response.json())
                 .then((data) => {
                     for (j=0;j<data.types.length;j++){
-                        let pType = document.createElement('li')
+                        let pType = document.createElement('p')
                         pType.textContent = data.types[j].type.name
                         containerDiv.append(pType)
                     }
@@ -50,9 +52,9 @@ fetch("https://pokeapi.co/api/v2/pokemon?limit=200")
                 .then((response) => response.json())
                 .then((data) => {
                     for (j=0;j<data.abilities.length;j++){
-                        let pAbilities = document.createElement('li')
+                        let pAbilities = document.createElement('p')
                         pAbilities.textContent = data.abilities[j].ability.name
-                        pAbilities.setAttribute("style","color:red;");
+                        pAbilities.setAttribute("style","color:red;text-align:right;");
                         containerDiv.append(pAbilities)
                     }
                 })     
@@ -72,32 +74,46 @@ fetch("https://pokeapi.co/api/v2/pokemon?limit=200")
                 // creating a another div after cleared
                 div = document.createElement("div")
                 document.body.appendChild(div)
-                div.setAttribute("style","display:grid;widht:300px;height:300px;justify-content:center;font-size:30px;background-color:light-blue;")
+                div.setAttribute('id',"dex")
+                div.setAttribute("style","background-color:skyblue; width:80%;margin:auto;padding:10px;display:grid;font-size:30px;")
+                // name of the pokemon
+                text = document.createElement('h1')
+                div.appendChild(text)
+                text.textContent = capitalizeFirstLetter(pokemonList[i].name)
+                createPokeImage(i+1,div)
                 // creating a button for types
                 btn = document.createElement("button")
                 div.appendChild(btn)
                 btn.textContent = "Types"
                 btn.setAttribute("id","bttn"+i) 
+                btn.setAttribute("style","border:ridge;width:50%;font-size:25px;")
                 document.getElementById("bttn"+i).addEventListener('click',function() {
-                    getTypeof(i+1,div)
+                    getTypeof(i+1,sect1)
                 })
                 // for abilities
                 btn1 = document.createElement("button")
                 btn1.textContent = "Abilities"
                 div.appendChild(btn1)
                 btn1.setAttribute("id","bttn1"+i) 
+                btn1.setAttribute("style","border:ridge;width:50%;font-size:25px;")
                 document.getElementById("bttn1"+i).addEventListener('click',function() {
-                    getAbilitiesOf(i+1,div)
+                    getAbilitiesOf(i+1,sect2)
                 })
-                // name of the pokemon
-                text = document.createElement('h1')
-                document.body.appendChild(text)
-                text.textContent = pokemonList[i].name
-                createPokeImage(i+1,div)
-                // location.href="../html/Pokedex.html"
+                tab = document.createElement('table')
+                div.appendChild(tab)
+                tab.appendChild(btn)
+                tab.appendChild(btn1)
+                tab2 = document.createElement('table')
+                div.appendChild(tab2)
+                sect1 = document.createElement("div")
+                sect2 = document.createElement("div")
+                tab2.appendChild(sect1)
+                tab2.appendChild(sect2)
+                sect1.setAttribute("style","width:50%")
+                sect2.setAttribute("style","width:50%")
+                tab2.setAttribute("style","display:flex;")
+
             })
         
         }  
     })
-
-
