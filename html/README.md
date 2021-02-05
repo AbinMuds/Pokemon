@@ -1,4 +1,5 @@
-<!-- ![](images/PokeApi.png) -->
+# App Screenshot
+![](images/PokeApi.png)
 
 
 # Technologies used
