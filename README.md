@@ -8,6 +8,9 @@ API used: https://pokeapi.co/
 
 # App Screenshot
 ![](images/PokeApi.png)
+![](images/pokedetails.png)
+![](images/mypokemonlist.png)
+![](images/cpupokemonlist.png)
 
 
 # Technologies used
