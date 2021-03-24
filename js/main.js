@@ -1,5 +1,5 @@
 // creating a main div for the main page
-mainDiv = document.createElement("div")
+let mainDiv = document.createElement("div")
 document.body.appendChild(mainDiv)
 mainDiv.setAttribute("id","container")
 // geting pokemons from the poke APi
